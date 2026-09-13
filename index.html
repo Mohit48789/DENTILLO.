@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dentillo Dental Clinic — modern, patient-focused dental care in Alpha I, Greater Noida.">
+<title>Dentillo Dental Clinic | Greater Noida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#10212b;--muted:#61727a;--teal:#0f8b8d;--teal2:#dff7f4;--cream:#f7fbfa;--white:#fff;--line:#dce9e7;--shadow:0 24px 70px rgba(16,33,43,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+h1,h2,h3,.brand{font-family:Manrope,sans-serif}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+/* reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(1160px,92%);padding:13px 16px 13px 22px;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);border:1px solid rgba(220,233,231,.9);border-radius:18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(16,33,43,.06)}
+.brand{font-weight:800;letter-spacing:-.04em;font-size:22px;cursor:pointer}.brand span{color:var(--teal)}
+.navlinks{display:flex;gap:27px;font-size:14px;font-weight:600;color:#53656d}
+.navlinks a{position:relative;padding:4px 0}
+.navlinks a:hover{color:var(--teal)}
+.navlinks a.active{color:var(--teal)}
+.navlinks a.active:after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--teal);border-radius:2px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 19px;border-radius:12px;background:var(--ink);color:white;font-weight:700;border:1px solid var(--ink);transition:.25s;cursor:pointer;font-size:14px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 25px rgba(16,33,43,.18)}
+.btn.teal{background:var(--teal);border-color:var(--teal)}
+.btn.ghost{background:white;color:var(--ink);border-color:var(--line)}
+.hamburger{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#fff;align-items:center;justify-content:center;cursor:pointer}
+.hamburger span,.hamburger span:before,.hamburger span:after{content:"";display:block;width:16px;height:2px;background:var(--ink);position:relative;transition:.25s}
+.hamburger span:before{position:absolute;top:-5px}
+.hamburger span:after{position:absolute;top:5px}
+.hamburger.open span{background:transparent}
+.hamburger.open span:before{transform:rotate(45deg);top:0}
+.hamburger.open span:after{transform:rotate(-45deg);top:0}
+
+.mobile-menu{position:fixed;top:76px;left:50%;transform:translateX(-50%) translateY(-12px);width:min(1160px,92%);background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);z-index:49;padding:10px;display:none;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
+.mobile-menu.open{display:flex;opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.mobile-menu a{padding:14px 12px;border-radius:10px;font-weight:700}
+.mobile-menu a:hover{background:var(--teal2)}
+
+.hero{padding:150px 0 70px;background:radial-gradient(circle at 85% 25%,#d9f6f2 0,transparent 31%),linear-gradient(180deg,#f5fbfa 0,#fff 72%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--teal2);color:#087376;padding:7px 11px;border-radius:999px;font-weight:700;font-size:12px;margin-bottom:20px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+h1{font-size:clamp(48px,6vw,76px);line-height:1.02;letter-spacing:-.065em;max-width:720px}
+h1 em{font-style:normal;color:var(--teal)}
+.hero p{font-size:18px;color:var(--muted);max-width:600px;margin:25px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{min-height:520px;border-radius:34px;position:relative;overflow:hidden;background:linear-gradient(145deg,#cfeeea,#f9ffff);box-shadow:var(--shadow);border:1px solid #d8ece9}
+.hero-art:before{content:"";position:absolute;width:310px;height:310px;border-radius:50%;background:rgba(255,255,255,.72);top:55px;right:55px}
+.smile{position:absolute;inset:90px 50px 80px 50px;border-radius:38% 38% 44% 44%;background:linear-gradient(145deg,#fff,#edf8f6);box-shadow:inset 0 -25px 45px rgba(15,139,141,.08);display:flex;align-items:center;justify-content:center;font-size:105px;transition:transform .4s ease}
+.hero-art:hover .smile{transform:scale(1.03) rotate(-1deg)}
+.smile:after{content:"✦";font-size:90px;color:var(--teal);opacity:.75}
+.float{position:absolute;background:rgba(255,255,255,.94);border:1px solid #dce9e7;border-radius:18px;padding:14px 17px;box-shadow:0 15px 35px rgba(16,33,43,.1);font-weight:700;transition:transform .3s ease}
+.float:hover{transform:translateY(-4px)}
+.float.one{left:22px;top:34px}.float.two{right:20px;bottom:32px}
+.float small{display:block;color:var(--muted);font-weight:500;margin-top:2px}
+
+.trust{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.trust-item{padding:17px 20px;border-right:1px solid var(--line)}
+.trust-item:last-child{border:0}
+.trust-item b{display:block;font-size:15px}
+.trust-item span{font-size:13px;color:var(--muted)}
+
+section{padding:100px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+.kicker{color:var(--teal);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:10px}
+.section-head h2{font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.05em}
+.section-head p{max-width:430px;color:var(--muted)}
+
+.services{background:var(--cream)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;min-height:210px;transition:.3s;cursor:pointer}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--teal)}
+.icon{width:44px;height:44px;border-radius:14px;background:var(--teal2);display:grid;place-items:center;color:var(--teal);font-size:21px;margin-bottom:24px;transition:.3s}
+.card:hover .icon{background:var(--teal);color:#fff;transform:rotate(-8deg) scale(1.05)}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+.photo{min-height:490px;border-radius:30px;background:linear-gradient(145deg,#e0f5f2,#f8fcfb);position:relative;overflow:hidden}
+.photo:before{content:"D";position:absolute;font:800 380px/1 Manrope;color:rgba(15,139,141,.08);left:30px;bottom:-60px}
+.photo-card{position:absolute;right:22px;bottom:22px;background:#fff;border:1px solid var(--line);padding:18px 20px;border-radius:18px;box-shadow:var(--shadow);max-width:250px}
+.about-copy h2{font-size:48px;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px}
+.about-copy>p{color:var(--muted);margin-bottom:26px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.feature{padding:16px;border:1px solid var(--line);border-radius:16px;transition:.25s}
+.feature:hover{border-color:var(--teal);background:var(--teal2)}
+.feature b{display:block}
+.feature span{font-size:13px;color:var(--muted)}
+
+.cta{padding:35px 0 100px}
+.cta-box{background:var(--ink);color:white;border-radius:30px;padding:60px;display:flex;justify-content:space-between;gap:30px;align-items:center;overflow:hidden;position:relative}
+.cta-box:after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:rgba(15,139,141,.28);right:-100px;top:-140px}
+.cta-box h2{font-size:45px;line-height:1.08;letter-spacing:-.05em;position:relative;z-index:1}
+.cta-box p{color:#b8c7ca;margin-top:10px;position:relative;z-index:1}
+.cta-box .btn{position:relative;z-index:2;background:#fff;color:var(--ink);border-color:#fff;white-space:nowrap}
+
+.contact{background:#f5fbfa}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px}
+.contact-card h3{font-size:25px;margin-bottom:20px}
+.detail{padding:15px 0;border-bottom:1px solid var(--line)}
+.detail:last-child{border:0}
+.detail small{display:block;color:var(--muted);margin-bottom:2px}
+.detail a{font-weight:700;color:var(--teal)}
+.map{min-height:380px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.map-visual{flex:1;min-height:220px}
+.map-visual svg{display:block;width:100%;height:100%}
+.map-body{padding:22px 24px}
+.map-body b{display:block;font-size:16px;margin-bottom:2px}
+.map-body span{color:var(--muted);font-size:13px}
+
+/* FAQ accordion */
+.faq{background:#fff}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:0;padding:22px 4px;font-size:17px;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--ink)}
+.faq-q .plus{transition:transform .25s ease;color:var(--teal);font-size:20px}
+.faq-item.open .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 4px 22px;color:var(--muted);max-width:600px}
+
+footer{padding:28px 0 100px;background:#f5fbfa;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:20px}
+.mobile-bar{display:none}
+
+/* Booking modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(16,33,43,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .2s ease}
+.modal-overlay.open{display:flex;opacity:1}
+.modal{background:#fff;border-radius:24px;max-width:460px;width:100%;padding:32px;box-shadow:0 30px 80px rgba(0,0,0,.3);position:relative;max-height:90vh;overflow-y:auto;transform:translateY(14px);transition:transform .25s ease}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px;line-height:1;color:var(--muted)}
+.modal-close:hover{background:var(--teal2);color:var(--teal)}
+.modal h3{font-size:24px;letter-spacing:-.03em;margin-bottom:6px}
+.modal .sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-family:inherit;font-size:14px;background:#f9fcfb}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
+.field textarea{resize:vertical;min-height:70px}
+.modal-actions{display:flex;gap:10px;margin-top:20px}
+.modal-actions .btn{flex:1}
+.err{color:#c0442e;font-size:12px;margin-top:4px;display:none}
+.field.invalid input,.field.invalid select{border-color:#c0442e}
+.field.invalid .err{display:block}
+.success-view{text-align:center;padding:10px 0}
+.success-view .check{width:56px;height:56px;border-radius:50%;background:var(--teal2);color:var(--teal);display:grid;place-items:center;font-size:28px;margin:0 auto 16px}
+.success-view h3{margin-bottom:8px}
+.success-view p{color:var(--muted);margin-bottom:20px}
+
+@media(max-width:850px){
+  .navlinks{display:none}
+  .hamburger{display:flex}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:125px}
+  .hero-art{min-height:420px}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-item:nth-child(2){border-right:0}
+  .cards{grid-template-columns:1fr 1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:15px}
+  .cta-box{padding:40px 28px;display:block}
+  .cta-box .btn{margin-top:24px}
+  .about-copy h2{font-size:40px}
+}
+@media(max-width:560px){
+  section{padding:75px 0}
+  .hero{padding-bottom:45px}
+  .hero p{font-size:16px}
+  .hero-art{min-height:360px}
+  .smile{inset:70px 35px 60px;font-size:75px}
+  .cards{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-item{border-right:0;border-bottom:1px solid var(--line)}
+  .features{grid-template-columns:1fr}
+  .foot{display:block}
+  .foot span{display:block;margin-top:8px}
+  .mobile-bar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 25px rgba(16,33,43,.08)}
+  .mobile-bar a,.mobile-bar button{text-align:center;padding:12px 4px;font-size:12px;font-weight:800;border:0;background:none;color:var(--ink);cursor:pointer;font-family:inherit}
+  .mobile-bar .mid{background:var(--teal);color:#fff}
+  .float{font-size:13px}
+  body{padding-bottom:58px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="brand" href="#top" data-scroll="top">DENTILLO<span>.</span></a>
+<div class="navlinks">
+  <a href="#services" data-scroll="services">Services</a>
+  <a href="#about" data-scroll="about">Why Dentillo</a>
+  <a href="#faq" data-scroll="faq">FAQ</a>
+  <a href="#contact" data-scroll="contact">Contact</a>
+</div>
+<div class="nav-right">
+  <button class="btn teal" data-open-booking>Book Appointment</button>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" data-scroll="services">Services</a>
+  <a href="#about" data-scroll="about">Why Dentillo</a>
+  <a href="#faq" data-scroll="faq">FAQ</a>
+  <a href="#contact" data-scroll="contact">Contact</a>
+  <a href="tel:+919807256803">Call +91 98072 56803</a>
+</div>
+
+<main id="top">
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow"><span class="dot"></span> Dental care in Alpha I, Greater Noida</div>
+<h1>A healthier smile starts with <em>better care.</em></h1>
+<p>Modern, thoughtful dental care designed around your comfort, confidence and long-term oral health.</p>
+<div class="actions">
+  <button class="btn teal" data-open-booking>Book an Appointment →</button>
+  <a class="btn ghost" href="#services" data-scroll="services">Explore Services</a>
+</div>
+</div>
+<div class="hero-art">
+<div class="float one">★ 5.0 Google rating<small>7 reviews</small></div>
+<div class="smile" aria-hidden="true"></div>
+<div class="float two">📍 Alpha I<small>Greater Noida</small></div>
+</div>
+</div>
+</section>
+
+<div class="trust"><div class="container trust-grid">
+<div class="trust-item"><b>Patient-first care</b><span>Comfortable, personal attention</span></div>
+<div class="trust-item"><b>Modern approach</b><span>Clear and thoughtful treatment</span></div>
+<div class="trust-item"><b>Easy appointments</b><span>Book online or call to schedule</span></div>
+<div class="trust-item"><b>Convenient location</b><span>Alpha I Commercial Belt</span></div>
+</div></div>
+
+<section id="services" class="services">
+<div class="container">
+<div class="section-head reveal"><div><div class="kicker">Our care</div><h2>Dental care for<br>every smile.</h2></div><p>From preventive care to restorative and cosmetic dentistry, your treatment plan should be as individual as you are.</p></div>
+<div class="cards">
+<div class="card reveal" data-service="General Dentistry"><div class="icon">✦</div><h3>General Dentistry</h3><p>Routine examinations and preventive dental care to help maintain a healthy smile.</p></div>
+<div class="card reveal" data-service="Restorative Care"><div class="icon">◌</div><h3>Restorative Care</h3><p>Thoughtful solutions for damaged, worn or missing teeth.</p></div>
+<div class="card reveal" data-service="Smile Care"><div class="icon">✧</div><h3>Smile Care</h3><p>Personalized options focused on a confident, natural-looking smile.</p></div>
+<div class="card reveal" data-service="Dental Consultation"><div class="icon">＋</div><h3>Dental Consultation</h3><p>Discuss your concerns, understand your options and plan the right next step.</p></div>
+<div class="card reveal" data-service="Preventive Care"><div class="icon">⌁</div><h3>Preventive Care</h3><p>Regular dental care and oral-health guidance to prevent future problems.</p></div>
+<div class="card reveal" data-service="General Dentistry"><div class="icon">♡</div><h3>Patient Comfort</h3><p>A calm, welcoming experience built around clear communication and care.</p></div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container about-grid">
+<div class="photo reveal"><div class="photo-card"><b>Dentillo Dental Clinic</b><small>204 MSX Tower-1 · Alpha I</small></div></div>
+<div class="about-copy reveal">
+<div class="kicker">Why Dentillo</div><h2>Good dentistry should feel simple.</h2>
+<p>We believe patients deserve a dental experience that feels clear, comfortable and personal—from the first conversation to every step of their care.</p>
+<div class="features">
+<div class="feature"><b>Comfort first</b><span>A welcoming experience without unnecessary stress.</span></div>
+<div class="feature"><b>Clear guidance</b><span>Understand your options before choosing a treatment.</span></div>
+<div class="feature"><b>Personal attention</b><span>Care that starts with listening to your concerns.</span></div>
+<div class="feature"><b>Convenient access</b><span>Easy to reach in Alpha I, Greater Noida.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta"><div class="container"><div class="cta-box reveal"><div><h2>Ready to take care<br>of your smile?</h2><p>Book online in under a minute, or call the clinic directly.</p></div><button class="btn" data-open-booking>Book an Appointment →</button></div></div></section>
+
+<section id="faq" class="faq">
+<div class="container">
+<div class="section-head reveal" style="justify-content:center;text-align:center;flex-direction:column"><div class="kicker">FAQ</div><h2>Good to know.</h2></div>
+<div class="faq-list">
+  <div class="faq-item">
+    <button class="faq-q">Do I need to call ahead, or can I walk in? <span class="plus">+</span></button>
+    <div class="faq-a"><p>Appointments are recommended so we can plan your visit, but walk-ins are welcome based on availability. Booking online or by phone helps us hold a slot for you.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">What are your clinic hours? <span class="plus">+</span></button>
+    <div class="faq-a"><p>The clinic is open evenings on weekdays and through the weekend. Exact hours can shift, so please call to confirm today's timing before you visit.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Where exactly is the clinic located? <span class="plus">+</span></button>
+    <div class="faq-a"><p>We're on the Second Floor, 204, MSX Tower-1, Alpha-I Commercial Belt, Block E, Greater Noida. Tap "Get Directions" in the Visit section for a map link.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">How do I book an appointment? <span class="plus">+</span></button>
+    <div class="faq-a"><p>Tap any "Book Appointment" button on this page to open the booking form. Submitting it sends your details straight to the clinic over WhatsApp, or you can simply call the number listed.</p></div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container">
+<div class="section-head reveal"><div><div class="kicker">Visit us</div><h2>Find Dentillo.</h2></div><p>Conveniently located in Alpha I Commercial Belt, Greater Noida.</p></div>
+<div class="contact-grid">
+<div class="contact-card reveal">
+<h3>Clinic details</h3>
+<div class="detail"><small>Address</small><b>Second Floor, 204, MSX Tower-1,<br>Alpha-I Commercial Belt, Block E,<br>Alpha I, Greater Noida, Uttar Pradesh 201310</b></div>
+<div class="detail"><small>Phone</small><a href="tel:+919807256803">+91 98072 56803</a></div>
+<div class="detail"><small>Hours</small><b>Mon–Fri: evening hours<br>Sat–Sun: evening hours</b><small style="margin-top:6px;display:block">Please call to confirm today's exact timing.</small></div>
+<a class="btn teal" style="margin-top:20px;width:100%" href="https://maps.app.goo.gl/TkZB2mgCuB7L5crb7" target="_blank" rel="noopener">Get Directions ↗</a>
+</div>
+<div class="map reveal">
+  <div class="map-visual">
+    <svg viewBox="0 0 300 220" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <rect width="300" height="220" fill="#dfeeea"/>
+      <path d="M0 150 L60 140 L120 158 L180 132 L240 150 L300 138 L300 220 L0 220 Z" fill="#cfe4de"/>
+      <path d="M0 90 L70 100 L150 82 L230 98 L300 86" stroke="#a9d2c6" stroke-width="2" fill="none"/>
+      <path d="M40 0 L40 220 M150 0 L150 220 M230 0 L230 220" stroke="#cfe4de" stroke-width="1"/>
+      <circle cx="150" cy="120" r="9" fill="#0f8b8d"/>
+      <circle cx="150" cy="120" r="18" fill="#0f8b8d" opacity="0.22"/>
+    </svg>
+  </div>
+  <div class="map-body">
+    <b>Dentillo Dental Clinic</b>
+    <span>Alpha-I Commercial Belt, Greater Noida</span>
+  </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="container foot"><div><a class="brand" href="#top" data-scroll="top">DENTILLO<span>.</span></a></div><span>© 2026 Dentillo Dental Clinic · Greater Noida</span></div></footer>
+
+<div class="mobile-bar">
+  <a href="tel:+919807256803">☎ Call</a>
+  <button class="mid" data-open-booking>📅 Appointment</button>
+  <a href="https://maps.app.goo.gl/TkZB2mgCuB7L5crb7" target="_blank" rel="noopener">📍 Directions</a>
+</div>
+
+<!-- Booking modal -->
+<div class="modal-overlay" id="bookingOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button class="modal-close" id="bookingClose" aria-label="Close">✕</button>
+
+    <div id="bookingFormView">
+      <h3 id="bookingTitle">Book an appointment</h3>
+      <p class="sub">Fill this in and we'll send it straight to the clinic over WhatsApp.</p>
+      <form id="bookingForm" novalidate>
+        <div class="field" data-field="name">
+          <label for="bkName">Full name</label>
+          <input type="text" id="bkName" name="name" placeholder="Your name">
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field" data-field="phone">
+          <label for="bkPhone">Phone number</label>
+          <input type="tel" id="bkPhone" name="phone" placeholder="10-digit mobile number">
+          <div class="err">Please enter a valid phone number.</div>
+        </div>
+        <div class="field" data-field="service">
+          <label for="bkService">Service</label>
+          <select id="bkService" name="service">
+            <option value="">Select a service</option>
+            <option>General Dentistry</option>
+            <option>Restorative Care</option>
+            <option>Smile Care</option>
+            <option>Dental Consultation</option>
+            <option>Preventive Care</option>
+            <option>Root Canal Treatment</option>
+            <option>Other</option>
+          </select>
+          <div class="err">Please choose a service.</div>
+        </div>
+        <div class="field" data-field="date">
+          <label for="bkDate">Preferred date</label>
+          <input type="date" id="bkDate" name="date">
+          <div class="err">Please pick a preferred date.</div>
+        </div>
+        <div class="field">
+          <label for="bkNotes">Notes (optional)</label>
+          <textarea id="bkNotes" name="notes" placeholder="Anything we should know before your visit?"></textarea>
+        </div>
+        <div class="modal-actions">
+          <a class="btn ghost" href="tel:+919807256803">Call instead</a>
+          <button type="submit" class="btn teal">Send via WhatsApp</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="bookingSuccessView" class="success-view" style="display:none">
+      <div class="check">✓</div>
+      <h3>Request ready to send</h3>
+      <p>We opened WhatsApp with your details pre-filled — just hit send there to reach the clinic.</p>
+      <button class="btn teal" style="width:100%" id="bookingDone">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CLINIC_PHONE = "919807256803"; // WhatsApp/tel number, country code no plus
+
+  /* ---------- smooth in-page scrolling (robust in sandboxed previews) ---------- */
+  document.querySelectorAll('[data-scroll]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      var id = el.getAttribute('data-scroll');
+      var target = id === 'top' ? document.body : document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      closeMobileMenu();
+      target.scrollIntoView({behavior:'smooth', block: id === 'top' ? 'end' : 'start'});
+      if (id === 'top') window.scrollTo({top:0, behavior:'smooth'});
+      history.replaceState(null, '', id === 'top' ? location.pathname : '#' + id);
+    });
+  });
+
+  /* ---------- mobile hamburger menu ---------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function closeMobileMenu(){
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    mobileMenu.classList.remove('open');
+  }
+  hamburger.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  /* ---------- active nav link on scroll ---------- */
+  var sections = ['services','about','faq','contact'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var navAnchors = document.querySelectorAll('.navlinks a');
+  function updateActiveNav(){
+    var scrollPos = window.scrollY + 140;
+    var currentId = null;
+    sections.forEach(function(sec){
+      if (sec.offsetTop <= scrollPos) currentId = sec.id;
+    });
+    navAnchors.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-scroll') === currentId);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, {passive:true});
+  updateActiveNav();
+
+  /* ---------- reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        if (openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if (isOpen){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- booking modal ---------- */
+  var overlay = document.getElementById('bookingOverlay');
+  var formView = document.getElementById('bookingFormView');
+  var successView = document.getElementById('bookingSuccessView');
+  var form = document.getElementById('bookingForm');
+  var closeBtn = document.getElementById('bookingClose');
+  var doneBtn = document.getElementById('bookingDone');
+  var lastFocused = null;
+
+  function openBooking(prefillService){
+    lastFocused = document.activeElement;
+    overlay.classList.add('open');
+    formView.style.display = '';
+    successView.style.display = 'none';
+    document.body.style.overflow = 'hidden';
+    if (prefillService){
+      document.getElementById('bkService').value = prefillService;
+    }
+    setTimeout(function(){ document.getElementById('bkName').focus(); }, 50);
+  }
+  function closeBooking(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('[data-open-booking]').forEach(function(btn){
+    btn.addEventListener('click', function(){ openBooking(); });
+  });
+  document.querySelectorAll('.card[data-service]').forEach(function(card){
+    card.addEventListener('click', function(){ openBooking(card.getAttribute('data-service')); });
+    card.setAttribute('tabindex','0');
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openBooking(card.getAttribute('data-service')); }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeBooking);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeBooking(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeBooking();
+  });
+  doneBtn.addEventListener('click', closeBooking);
+
+  function setInvalid(fieldName, invalid){
+    var field = form.querySelector('[data-field="' + fieldName + '"]');
+    if (field) field.classList.toggle('invalid', invalid);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim().replace(/\s+/g,'');
+    var service = form.service.value;
+    var date = form.date.value;
+    var notes = form.notes.value.trim();
+
+    var nameValid = name.length > 1;
+    var phoneValid = /^[6-9]\d{9}$/.test(phone.replace(/^\+?91/, ''));
+    var serviceValid = service.length > 0;
+    var dateValid = date.length > 0;
+
+    setInvalid('name', !nameValid);
+    setInvalid('phone', !phoneValid);
+    setInvalid('service', !serviceValid);
+    setInvalid('date', !dateValid);
+
+    if (!(nameValid && phoneValid && serviceValid && dateValid)) return;
+
+    var lines = [
+      'New appointment request — Dentillo Dental Clinic',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Service: ' + service,
+      'Preferred date: ' + date
+    ];
+    if (notes) lines.push('Notes: ' + notes);
+    var message = encodeURIComponent(lines.join('\n'));
+    var waUrl = 'https://wa.me/' + CLINIC_PHONE + '?text=' + message;
+
+    window.open(waUrl, '_blank', 'noopener');
+
+    formView.style.display = 'none';
+    successView.style.display = '';
+  });
+})();
+</script>
+</body>
+</html>
